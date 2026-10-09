@@ -45,7 +45,7 @@ Bạn nên cài đặt và sử dụng phiên bản mới nhất của Arduino I
 + Sao chép địa chỉ quản lý bo mạch phát triển sau:
 
   ```
-  https://github.com/tuya/arduino-tuyaopen/releases/download/global/package_tuya_open_index.json
+  https://github.com/ThanhCongTED/TED-Tuya-ESP32/releases/download/global/package_ted_tuya_esp32_index.json
   ```
 
 
