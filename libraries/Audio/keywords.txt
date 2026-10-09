@@ -1,0 +1,52 @@
+#######################################
+# Syntax Coloring Map For Audio Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Audio	KEYWORD1
+AUDIO_STATUS_E	KEYWORD1
+AUDIO_CONFIG_T	KEYWORD1
+AudioFrameCallback	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+end	KEYWORD2
+startRecord	KEYWORD2
+stopRecord	KEYWORD2
+play	KEYWORD2
+playRecordedData	KEYWORD2
+stopPlay	KEYWORD2
+shouldStopPlay	KEYWORD2
+resetStopFlag	KEYWORD2
+setVolume	KEYWORD2
+getVolume	KEYWORD2
+getStatus	KEYWORD2
+isIdle	KEYWORD2
+isRecording	KEYWORD2
+isPlaying	KEYWORD2
+getRecordedDataLen	KEYWORD2
+readRecordedData	KEYWORD2
+clearRecordedData	KEYWORD2
+setAudioFrameCallback	KEYWORD2
+getRecordBuffer	KEYWORD2
+getAudioInfo	KEYWORD2
+getAudioHandle	KEYWORD2
+getFrameCallback	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+AUDIO_STATUS_IDLE	LITERAL1
+AUDIO_STATUS_RECORD_START	LITERAL1
+AUDIO_STATUS_RECORDING	LITERAL1
+AUDIO_STATUS_RECORD_END	LITERAL1
+AUDIO_STATUS_PLAY_START	LITERAL1
+AUDIO_STATUS_PLAYING	LITERAL1
+AUDIO_STATUS_PLAY_END	LITERAL1
