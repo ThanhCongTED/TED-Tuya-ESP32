@@ -41,11 +41,11 @@ It is recommended to install and use the latest version of Arduino IDE 2, which 
 
 + Open Arduino IDE 2 and click "File" -> "Preferences" to open the preferences window.
 
-  ![Preferences](https://images.tuyacn.com/fe-static/docs/img/581335e7-e012-4895-aece-7af21d00bbf5.png)
+  ![Preferences](https://github.com/ThanhCongTED/TED-Tuya-ESP32/blob/main/image/Preferences.jpg)
 
 + In the "Other Board Manager URLs" field, enter the above development board management address.
 
-  ![BoardManagerURL](https://images.tuyacn.com/fe-static/docs/img/cc3f4fa3-3fd6-458a-af90-a04b49225714.png)
+  ![BoardManagerURL](https://github.com/ThanhCongTED/TED-Tuya-ESP32/blob/main/image/BoardManager.jpg)
 
 + In the "Board Manager", search for "TED Tuya ESP32" and install the latest version.
 
