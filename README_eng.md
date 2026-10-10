@@ -28,7 +28,7 @@ Currently, the project supports the ESP32 chip.
 
 > Note: Some chips are not yet supported on certain operating systems. We are working hard to support them, so stay tuned!
 
-# How to use arduino-tuyaopen
+# How to use TED_TUYA_ESP32
 
 It is recommended to install and use the latest version of Arduino IDE 2, which can be downloaded from the official Arduino website [arduino.cc](https://www.arduino.cc/en/software). All compilation, flashing, and testing of this project are carried out on Arduino IDE 2.
 
@@ -51,7 +51,7 @@ It is recommended to install and use the latest version of Arduino IDE 2, which 
 
 ## How to use arduino-ted-tuya for cloud connection
 
-+ [Connect to Tuya IoT Platform](./libraries/TuyaIoT/examples/quickStart/README.md)
++ [Connect to Tuya IoT Platform](./tuya_open/libraries/TuyaIoT/examples/quickStart/README_eng.md)
 
 ## Hardware Introduction for Development Board
 

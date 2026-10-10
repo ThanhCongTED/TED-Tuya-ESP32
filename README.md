@@ -28,7 +28,7 @@ Hiện tại, dự án hỗ trợ các chip ESP32.
 
 > Lưu ý: Một số chip chưa được hỗ trợ trên một số hệ điều hành nhất định, chúng tôi đang nỗ lực để hỗ trợ chúng, hãy chờ đón nhé!
 
-# Cách sử dụng arduino-tuyaopen
+# Cách sử dụng TED_TUYA_ESP32
 
 Bạn nên cài đặt và sử dụng phiên bản mới nhất của Arduino IDE 2, có thể tải xuống từ trang chủ chính thức của Arduino [arduino.cc](https://www.arduino.cc/en/software). Tất cả các công việc biên dịch, nạp và kiểm thử của dự án này đều được thực hiện trên Arduino IDE 2.
 

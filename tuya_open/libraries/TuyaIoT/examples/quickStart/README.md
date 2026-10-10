@@ -8,7 +8,7 @@ Ví dụ `quickStart` minh họa một ví dụ công tắc đơn giản, đa n�
 
 ## Tạo sản phẩm
 
-Tham khảo [Tài liệu Tạo sản phẩm](https://developer.tuya.com/en/docs/iot-device-dev/application-creation?id=Kbxw7ket3aujc) để tạo một sản phẩm trên nền tảng [Tuya IoT](https://iot.tuya.com) và lấy PID của sản phẩm đã tạo.
+Tạo một sản phẩm trên nền tảng [Tuya IoT](https://iot.tuya.com) và lấy PID của sản phẩm đã tạo.
 
 Sau đó thay thế PID trong `quickStart` bằng PID bạn đã lấy được.
 
@@ -17,7 +17,7 @@ const char *pid = "ekdehkpnjp8squlk";
 const char *mcu_ver = "2.1.0";
 ```
 
-## Xác nhận mã License của TuyaOpen
+## Xác nhận mã License của TED_TUYA_ESP32
 
 Các sản phẩm được phát triển thông qua dự án này cần sử dụng mã license dành riêng cho Tuya Sử dụng mã license khác sẽ không thể kết nối đúng cách với Tuya Cloud.
 
