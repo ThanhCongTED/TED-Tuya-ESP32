@@ -41,11 +41,11 @@ Bạn nên cài đặt và sử dụng phiên bản mới nhất của Arduino I
 
 + Mở Arduino IDE 2 và nhấp vào "File" -> "Preferences" để mở cửa sổ tùy chọn.
 
-  ![Preferences](https://images.tuyacn.com/fe-static/docs/img/581335e7-e012-4895-aece-7af21d00bbf5.png)
+  ![Preferences](https://github.com/ThanhCongTED/TED-Tuya-ESP32/image/Preferences.jpg)
 
 + Trong trường "Other Board Manager URLs", nhập địa chỉ quản lý bo mạch phát triển ở trên.
 
-  ![BoardManagerURL](https://images.tuyacn.com/fe-static/docs/img/cc3f4fa3-3fd6-458a-af90-a04b49225714.png)
+  ![BoardManagerURL](https://github.com/ThanhCongTED/TED-Tuya-ESP32/image/BoardManager.jpg)  
 
 + Trong "Board Manager", tìm kiếm "TED Tuya ESP32" và cài đặt phiên bản mới nhất.
 
