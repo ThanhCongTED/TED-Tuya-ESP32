@@ -51,7 +51,7 @@ Bạn nên cài đặt và sử dụng phiên bản mới nhất của Arduino I
 
 ## Cách sử dụng arduino-ted-tuya để kết nối đám mây
 
-+ [Kết nối với Nền tảng IoT Tuya](./libraries/TuyaIoT/examples/quickStart/README.md)
++ [Kết nối với Nền tảng IoT Tuya](./tuya_open/libraries/TuyaIoT/examples/quickStart/README.md)
 
 ## Giới thiệu phần cứng cho Bo mạch phát triển
 
