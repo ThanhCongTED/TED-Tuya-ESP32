@@ -1,113 +1,126 @@
-# 天气获取示例
+# Ví dụ Lấy dữ liệu Thời tiết
 
-## 概述
+## Tổng quan
 
-本示例演示了如何将涂鸦物联网天气服务集成到你的设备中。展示了如何从涂鸦云端获取天气数据，并通过 LED 指示灯控制智能开关。
+Ví dụ này minh họa cách tích hợp Dịch vụ Thời tiết Tuya IoT với thiết bị của bạn. Nó cho thấy cách lấy dữ liệu thời tiết từ đám mây Tuya và điều khiển một công tắc thông minh với đèn LED chỉ báo.
 
-## 功能特性
+## Tính năng
 
-- 从涂鸦物联网天气服务获取天气数据
-- 带 LED 控制的智能开关功能
-- 基于按钮的用户交互
-- LED 状态指示（关闭、开启、闪烁）
-- 网络配置管理
-- 通过 Ticker 进行内存监控
+- Lấy dữ liệu thời tiết từ Dịch vụ Thời tiết Tuya IoT
+- Chức năng công tắc thông minh với điều khiển LED
+- Tương tác người dùng qua nút nhấn
+- Chỉ báo trạng thái LED (tắt, bật, nhấp nháy)
+- Quản lý cấu hình mạng
+- Giám sát bộ nhớ qua Ticker
 
-## 硬件要求
+## Yêu cầu phần cứng
 
-- 涂鸦支持的开发板
-- 连接到 LED_BUILTIN 引脚的 LED
-- 连接到 BUTTON_BUILTIN 引脚的按钮
+- Bo mạch phát triển được Tuya hỗ trợ
+- LED kết nối với chân LED_BUILTIN
+- Nút nhấn kết nối với chân BUTTON_BUILTIN
 
-## 配置
+## Cấu hình
 
-上传前需要配置以下参数：
+Cấu hình các tham số sau trước khi nạp firmware:
 
 ```cpp
-#define TUYA_DEVICE_UUID "uuidxxxxxxxxxxxxxxxx"      // 你的设备 UUID
-#define TUYA_DEVICE_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxx" // 你的授权密钥
+#define THANHCONGTED_UUID "uuidxxxxxxxxxxxxxxxx"      // UUID thiết bị của bạn
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxx" // Auth key của bạn
 ```
 
-产品 ID: `qhivvyqawogv04e4`
+Product ID: `qhivvyqawogv04e4`
 
-## 引脚配置
+## Cấu hình chân
 
-- `LED_BUILTIN`: 状态 LED（低电平点亮）
-- `BUTTON_BUILTIN`: 用户按钮（低电平有效）
+- `LED_BUILTIN`: LED trạng thái (bật khi mức LOW)
+- `BUTTON_BUILTIN`: Nút nhấn người dùng (kích hoạt mức LOW)
 
-## 工作原理
+## Cách hoạt động
 
-1. **初始化**: 设置日志、LED、按钮和物联网连接
-2. **天气服务**: 初始化 TuyaIoTWeather 服务
-3. **LED 控制**: 根据开关 DP 管理 LED 状态
-4. **按钮处理**: 短按切换开关，长按移除设备
-5. **天气演示**: 演示天气数据获取
-6. **堆监控**: 每5秒报告空闲堆内存
+1. **Khởi tạo**: Thiết lập logging, LED, nút nhấn và kết nối IoT
+2. **Dịch vụ Thời tiết**: Khởi tạo dịch vụ TuyaIoTWeather
+3. **Điều khiển LED**: Quản lý trạng thái LED dựa trên DP công tắc
+4. **Xử lý nút nhấn**: Nhấn ngắn để bật/tắt công tắc, nhấn giữ để xóa thiết bị
+5. **Demo Thời tiết**: Minh họa việc lấy dữ liệu thời tiết
+6. **Giám sát Heap**: Báo cáo heap trống mỗi 5 giây
 
-## 数据点
+## Các Data Point
 
-- `DPID_SWITCH` (1): 布尔型 - 开关状态（控制 LED）
+- `DPID_SWITCH` (1): Kiểu Boolean - Trạng thái công tắc (điều khiển LED)
 
-## 按钮控制
+## Điều khiển nút nhấn
 
-- **短按**: 切换开关/LED 状态
-- **长按（3秒）**: 从涂鸦物联网平台移除设备
+- **Nhấn ngắn**: Bật/tắt trạng thái công tắc/LED
+- **Nhấn giữ (3 giây)**: Xóa thiết bị khỏi nền tảng Tuya IoT
 
-## LED 状态
+## Trạng thái LED
 
-- **关闭**: 开关为关闭状态
-- **开启**: 开关为开启状态
-- **闪烁（500ms）**: 设备处于绑定模式
+- **Tắt**: Công tắc đang tắt
+- **Bật**: Công tắc đang bật
+- **Nhấp nháy (500ms)**: Thiết bị đang ở chế độ liên kết (binding)
 
-## 使用方法
+## Cách sử dụng
 
-1. 将固件烧录到设备
-2. 打开串口监视器，波特率 115200
-3. 设备连接到涂鸦物联网平台
-4. 使用按钮控制 LED 或使用涂鸦智能 App
-5. 天气数据将自动获取
+1. Nạp firmware vào thiết bị của bạn
+2. Mở Serial Monitor ở tốc độ 115200 baud
+3. Thiết bị kết nối đến nền tảng Tuya IoT
+4. Dùng nút nhấn để điều khiển LED hoặc dùng ứng dụng Tuya Smart
+5. Dữ liệu thời tiết sẽ được lấy tự động
 
-## 天气服务
+## Dịch vụ Thời tiết
 
-示例包含 `weatherGetDemo()` 函数演示天气数据获取。你可以自定义此函数来：
-- 获取当前天气
-- 获取天气预报
-- 获取温度、湿度等
-- 显示天气信息
+Ví dụ bao gồm hàm `weatherGetDemo()` để minh họa việc lấy dữ liệu thời tiết. Bạn có thể tùy chỉnh hàm này để:
+- Lấy thời tiết hiện tại
+- Lấy dự báo thời tiết
+- Lấy nhiệt độ, độ ẩm, v.v.
+- Hiển thị thông tin thời tiết
 
-## 处理的事件
+## Các sự kiện được xử lý
 
-- `TUYA_EVENT_BIND_START`: 设备进入绑定模式
-- `TUYA_EVENT_ACTIVATE_SUCCESSED`: 设备激活完成
-- `TUYA_EVENT_MQTT_CONNECTED`: 连接到涂鸦云端
-- `TUYA_EVENT_TIMESTAMP_SYNC`: 时间同步
-- `TUYA_EVENT_DP_RECEIVE_OBJ`: 接收 DP 命令
+- `TUYA_EVENT_BIND_START`: Thiết bị vào chế độ liên kết
+- `TUYA_EVENT_ACTIVATE_SUCCESSED`: Kích hoạt thiết bị hoàn tất
+- `TUYA_EVENT_MQTT_CONNECTED`: Đã kết nối đến đám mây Tuya
+- `TUYA_EVENT_TIMESTAMP_SYNC`: Đồng bộ thời gian
+- `TUYA_EVENT_DP_RECEIVE_OBJ`: Nhận lệnh DP
 
-## 依赖库
+## Phụ thuộc
 
-- TuyaIoT 库
-- TuyaIoTWeather 库
-- tLed 库
-- Log 库
-- Ticker 库
+- Thư viện TuyaIoT
+- Thư viện TuyaIoTWeather
+- Thư viện tLed
+- Thư viện Log
+- Thư viện Ticker
 
-## 注意事项
+## Lưu ý
 
-- 确保拥有有效的涂鸦设备许可证
-- 天气服务需要设备在线
-- 空闲堆监控有助于跟踪内存使用
-- tLed 类提供了带闪烁功能的简单 LED 控制
+- Đảm bảo có license thiết bị Tuya hợp lệ
+- Dịch vụ thời tiết yêu cầu thiết bị phải online
+- Giám sát heap trống giúp theo dõi mức sử dụng bộ nhớ
+- Lớp tLed cung cấp điều khiển LED dễ dàng với chức năng nhấp nháy
 
-## 故障排除
+## Xử lý sự cố
 
-- 如果连接失败，检查 UUID 和 AuthKey
-- 验证网络配置
-- 监视串口输出查看错误信息
-- 如果设备行为异常，检查空闲堆内存
+- Kiểm tra UUID và AuthKey nếu kết nối thất bại
+- Xác minh cấu hình mạng
+- Theo dõi output serial để tìm lỗi
+- Kiểm tra heap trống nếu thiết bị hoạt động bất thường
 
-## 高级功能
+## Tính năng nâng cao
 
-- 自定义天气数据获取
-- 添加更多 DP 进行额外控制
-- 实现基于天气的自动化
-- 存储天气历史记录
+- Tùy chỉnh việc lấy dữ liệu thời tiết
+- Thêm nhiều DP hơn cho các điều khiển bổ sung
+- Triển khai tự động hóa dựa trên thời tiết
+- Lưu trữ lịch sử thời tiết
+
+## 📞 Hỗ trợ kỹ thuật
+Mọi thắc mắc về firmware, vui lòng liên hệ:
+
+📞 Điện thoại/Zalo: +84-915-898-345
+
+✉️ Email: thanhcongted.info@gmail.com
+
+🌐 Website: https://thanhcongted.com
+
+## © Bản quyền
+Phát triển bởi đội ngũ kỹ sư Việt Nam
+Sản phẩm được thiết kế phù hợp với nhu cầu và thói quen sử dụng tại thị trường nội địa.

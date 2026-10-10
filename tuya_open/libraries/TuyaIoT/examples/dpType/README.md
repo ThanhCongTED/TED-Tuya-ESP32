@@ -1,69 +1,73 @@
-# TuyaIoT dpType Example
+# Ví dụ dpType của TuyaIoT
 
-## Overview
+## Tổng quan
 
-This example demonstrates how to handle different Data Point (DP) types in Tuya IoT applications. It shows how to read and write various DP types including boolean, value, enum, string, bitmap, and raw data types.
+Ví dụ này minh họa cách xử lý các loại Data Point (DP) khác nhau trong ứng dụng Tuya IoT. Nó cho thấy cách đọc và ghi nhiều loại DP bao gồm boolean, value, enum, string, bitmap và raw.
 
-## Features
+## Tính năng
 
-- Handle multiple DP types (boolean, value, enum, string, bitmap, raw)
-- Read DP values from Tuya cloud
-- Write DP values to Tuya cloud
-- Button control for device reset
-- Network configuration management
+- Xử lý nhiều loại DP (boolean, value, enum, string, bitmap, raw)
+- Đọc giá trị DP từ đám mây Tuya
+- Ghi giá trị DP lên đám mây Tuya
+- Điều khiển nút nhấn để reset thiết bị
+- Quản lý cấu hình mạng
 
-## Hardware Requirements
+## Yêu cầu phần cứng
 
-- Tuya-supported development board (ESP32, T2, T3, T5, etc.)
-- Button connected to BUTTON_BUILTIN pin
+- Bo mạch phát triển được Tuya hỗ trợ (ESP32, T2, T3, T5, v.v.)
+- Nút nhấn kết nối với chân BUTTON_BUILTIN
 
-## Data Points
+## Các Data Point
 
-The example defines the following DPs:
+Ví dụ định nghĩa các DP sau:
 
-- `DPID_SWITCH` (20): Boolean type - Switch state
-- `DPID_MODE` (21): Enum type - Operating mode
-- `DPID_BRIGHT` (22): Value type - Brightness level
-- `DPID_BITMAP` (101): Bitmap type - Multiple flags
-- `DPID_STRING` (102): String type - Text data
-- `DPID_RAW` (103): Raw type - Binary data
+- `DPID_SWITCH` (20): Kiểu Boolean - Trạng thái công tắc
+- `DPID_MODE` (21): Kiểu Enum - Chế độ hoạt động
+- `DPID_BRIGHT` (22): Kiểu Value - Mức độ sáng
+- `DPID_BITMAP` (101): Kiểu Bitmap - Nhiều cờ hiệu
+- `DPID_STRING` (102): Kiểu String - Dữ liệu văn bản
+- `DPID_RAW` (103): Kiểu Raw - Dữ liệu nhị phân
 
-## Configuration
+## Cấu hình
 
-Before uploading, configure these parameters:
+Trước khi nạp firmware, hãy cấu hình các tham số sau:
 
 ```cpp
-#define TUYA_DEVICE_UUID "uuidxxxxxxxxxxxxxxxx"      // Replace with your device UUID
-#define TUYA_DEVICE_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxx" // Replace with your auth key
+
+const char *pid = "ekdehkpnjp8squlk";
+const char *mcu_ver = "2.1.0";
+
+// Thông tin xác thực Tuya
+#define THANHCONGTED_UUID    "uuidxxxxxxxxxxxxxxxx" // Thay bằng UUID thiết bị của bạn
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Thay bằng auth key của bạn
+
 ```
 
-Product ID: `2avicuxv6zgeiquf` (configured in code)
+## Cách hoạt động
 
-## How It Works
+1. **Khởi tạo**: Khởi tạo giao tiếp serial và logging
+2. **Thiết lập License**: Đọc license của bo mạch hoặc dùng thông tin xác thực cứng
+3. **Kết nối IoT**: Kết nối đến nền tảng Tuya IoT
+4. **Xử lý DP**: Nhận lệnh DP từ đám mây và báo cáo trạng thái trở lại
+5. **Điều khiển nút nhấn**: Nhấn giữ nút để xóa thiết bị
 
-1. **Initialization**: Initializes serial communication and logging
-2. **License Setup**: Reads board license or uses hardcoded credentials
-3. **IoT Connection**: Connects to Tuya IoT platform
-4. **DP Handling**: Receives DP commands from cloud and reports status back
-5. **Button Control**: Long press button to remove device
+## Các thao tác DP
 
-## DP Operations
-
-### Boolean (Switch)
+### Boolean (Công tắc)
 ```cpp
 bool switchStatus = 0;
 TuyaIoT.read(event, DPID_SWITCH, switchStatus);
 TuyaIoT.write(DPID_SWITCH, switchStatus);
 ```
 
-### Value (Integer)
+### Value (Số nguyên)
 ```cpp
 int brightValue = 0;
 TuyaIoT.read(event, DPID_BRIGHT, brightValue);
 TuyaIoT.write(DPID_BRIGHT, brightValue);
 ```
 
-### Enum (Mode)
+### Enum (Chế độ)
 ```cpp
 uint32_t mode = 0;
 TuyaIoT.read(event, DPID_MODE, mode);
@@ -77,7 +81,7 @@ TuyaIoT.read(event, DPID_STRING, strValue);
 TuyaIoT.write(DPID_STRING, strValue);
 ```
 
-### Raw (Binary)
+### Raw (Nhị phân)
 ```cpp
 uint8_t *rawValue = NULL;
 uint16_t len = 0;
@@ -85,49 +89,62 @@ TuyaIoT.read(event, DPID_RAW, rawValue, len);
 TuyaIoT.write(DPID_RAW, rawValue, len);
 ```
 
-## Usage
+## Cách sử dụng
 
-1. Flash the firmware to your device
-2. Open Serial Monitor at 115200 baud
-3. Device will connect to Tuya IoT platform
-4. Use Tuya Smart app to control DPs
-5. Monitor serial output to see DP values
-6. Long press button (3 seconds) to remove device
+1. Nạp firmware vào thiết bị của bạn
+2. Mở Serial Monitor ở tốc độ 115200 baud
+3. Thiết bị sẽ kết nối đến nền tảng Tuya IoT
+4. Sử dụng ứng dụng Tuya Smart để điều khiển các DP
+5. Theo dõi output serial để xem giá trị DP
+6. Nhấn giữ nút (3 giây) để xóa thiết bị
 
-## Button Controls
+## Điều khiển nút nhấn
 
-- **Short Press**: No action (can be customized)
-- **Long Press (3s)**: Remove device from Tuya IoT platform
+- **Nhấn ngắn**: Không có hành động (có thể tùy chỉnh)
+- **Nhấn giữ (3 giây)**: Xóa thiết bị khỏi nền tảng Tuya IoT
 
-## Events Handled
+## Các sự kiện được xử lý
 
-- `TUYA_EVENT_BIND_START`: Device binding started
-- `TUYA_EVENT_ACTIVATE_SUCCESSED`: Device activation succeeded
-- `TUYA_EVENT_TIMESTAMP_SYNC`: Time synchronization
-- `TUYA_EVENT_DP_RECEIVE_OBJ`: Received object-type DP data
-- `TUYA_EVENT_DP_RECEIVE_RAW`: Received raw-type DP data
+- `TUYA_EVENT_BIND_START`: Bắt đầu liên kết thiết bị
+- `TUYA_EVENT_ACTIVATE_SUCCESSED`: Kích hoạt thiết bị thành công
+- `TUYA_EVENT_TIMESTAMP_SYNC`: Đồng bộ thời gian
+- `TUYA_EVENT_DP_RECEIVE_OBJ`: Nhận dữ liệu DP kiểu object
+- `TUYA_EVENT_DP_RECEIVE_RAW`: Nhận dữ liệu DP kiểu raw
 
-## Dependencies
+## Phụ thuộc
 
-- TuyaIoT library
-- Log library
+- Thư viện TuyaIoT
+- Thư viện Log
 
-## Notes
+## Lưu ý
 
-- Ensure you have a valid Tuya device license
-- Configure the correct Product ID for your device type
-- The example demonstrates all common DP types
-- DP IDs must match your product schema in Tuya IoT Platform
+- Đảm bảo bạn có license thiết bị Tuya hợp lệ
+- Cấu hình Product ID chính xác cho loại thiết bị của bạn
+- Ví dụ minh họa tất cả các loại DP phổ biến
+- Các DP ID phải khớp với schema sản phẩm của bạn trên nền tảng Tuya IoT
 
-## Troubleshooting
+## Xử lý sự cố
 
-- If device doesn't connect, verify UUID and AuthKey
-- Check Product ID matches your product on Tuya platform
-- Ensure DP IDs match your product schema
-- Check serial output for detailed logs
+- Nếu thiết bị không kết nối, hãy kiểm tra UUID và AuthKey
+- Kiểm tra Product ID khớp với sản phẩm của bạn trên nền tảng Tuya
+- Đảm bảo các DP ID khớp với schema sản phẩm của bạn
+- Kiểm tra output serial để xem log chi tiết
 
-## Learn More
+## Tìm hiểu thêm
 
-- Understand how to define DPs in Tuya IoT Platform
-- Learn about different DP types and their use cases
-- See how to handle bidirectional DP communication
+- Hiểu cách định nghĩa DP trên nền tảng Tuya IoT
+- Tìm hiểu về các loại DP khác nhau và trường hợp sử dụng của chúng
+- Xem cách xử lý giao tiếp DP hai chiều
+
+## 📞 Hỗ trợ kỹ thuật
+Mọi thắc mắc về firmware, vui lòng liên hệ:
+
+📞 Điện thoại/Zalo: +84-915-898-345
+
+✉️ Email: thanhcongted.info@gmail.com
+
+🌐 Website: https://thanhcongted.com
+
+## © Bản quyền
+Phát triển bởi đội ngũ kỹ sư Việt Nam
+Sản phẩm được thiết kế phù hợp với nhu cầu và thói quen sử dụng tại thị trường nội địa.

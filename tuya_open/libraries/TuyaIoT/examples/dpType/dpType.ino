@@ -1,13 +1,13 @@
 /**
  * @file dpType.ino
- * @brief Tuya IoT DP type example
- * @copyright Copyright (c) 2021-2026 Tuya Inc. All Rights Reserved.
+ * @brief Ví dụ về các loại DP của Tuya IoT
+ * @copyright Copyright (c) 2021-2026 ThanhCongTED.
  */
 
 #include "TuyaIoT.h"
 #include "Log.h"
 
-// button
+// nút nhấn
 #define buttonPin         BUTTON_BUILTIN
 #define buttonPressLevel  LOW
 #define buttonDebounceMs  (50u)
@@ -20,21 +20,26 @@
 #define DPID_STRING 102
 #define DPID_RAW    103
 
-// Tuya license
-#define TUYA_DEVICE_UUID    "uuidxxxxxxxxxxxxxxxx"
-#define TUYA_DEVICE_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+// ==================== CẤU HÌNH TUYA ====================
+const char *pid = "2avicuxv6zgeiquf";
+const char *mcu_ver = "2.1.0";
+
+// Thông tin xác thực Tuya
+#define THANHCONGTED_UUID    "uuidxxxxxxxxxxxxxxxx"
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 void tuyaIoTEventCallback(tuya_event_msg_t *event);
 void buttonCheck(void);
 
 void setup()
 {
-    // put your setup code here, to run once:
+    // đặt code setup của bạn ở đây, chạy một lần:
     Serial.begin(115200);
 
     Log.begin();
 
-    // button
+    // nút nhấn
     pinMode(buttonPin, INPUT_PULLUP);
 
     TuyaIoT.setEventCallback(tuyaIoTEventCallback);
@@ -43,25 +48,23 @@ void setup()
     tuya_iot_license_t license;
     int                rt = TuyaIoT.readBoardLicense(&license);
     if (OPRT_OK != rt) {
-        license.uuid    = (char *)TUYA_DEVICE_UUID;
-        license.authkey = (char *)TUYA_DEVICE_AUTHKEY;
-        Serial.println("Replace the TUYA_DEVICE_UUID and TUYA_DEVICE_AUTHKEY contents, otherwise the demo cannot work");
+        license.uuid    = (char *)THANHCONGTED_UUID;
+        license.authkey = (char *)THANHCONGTED_AUTHKEY;
+        Serial.println("Thay thế nội dung THANHCONGTED_UUID và THANHCONGTED_AUTHKEY, nếu không demo sẽ không hoạt động");
     }
-    Serial.print("uuid: ");
+    Serial.print("THANHCONGTED_UUID: ");
     Serial.println(license.uuid);
-    Serial.print("authkey: ");
+    Serial.print("THANHCONGTED_AUTHKEY: ");
     Serial.println(license.authkey);
     TuyaIoT.setLicense(license.uuid, license.authkey);
-
-    // The "PROJECT_VERSION" comes from the "PROJECT_VERSION" field in "appConfig.json"
-    TuyaIoT.begin("2avicuxv6zgeiquf", PROJECT_VERSION);
+    TuyaIoT.begin(pid, mcu_ver);
 }
 
 void loop()
 {
-    // put your main code here, to run repeatedly:
+    // đặt code chính của bạn ở đây, chạy lặp đi lặp lại:
 
-    // button press check
+    // kiểm tra nhấn nút
     buttonCheck();
 
     delay(10);
@@ -129,12 +132,12 @@ void tuyaIoTEventCallback(tuya_event_msg_t *event)
 
 void buttonClick()
 {
-    Serial.println("Button clicked");
+    Serial.println("Đã nhấn nút");
 }
 
 void buttonLongPressStart()
 {
-    Serial.println("Button long press, remove Tuya IoT device.");
+    Serial.println("Nhấn giữ nút, xóa thiết bị Tuya IoT.");
     TuyaIoT.remove();
 }
 
@@ -149,12 +152,12 @@ void buttonCheck(void)
             isPress       = 1;
         }
 
-        // button debounce
+        // chống dội nút nhấn
         if ((1 == isPress) && ((millis() - buttonPressMs) > buttonDebounceMs)) {
             isPress = 2;
         }
 
-        // long press check
+        // kiểm tra nhấn giữ
         if ((2 == isPress) && ((millis() - buttonPressMs) >= buttonLongPressMs)) {
             isPress = 3;
             buttonLongPressStart();

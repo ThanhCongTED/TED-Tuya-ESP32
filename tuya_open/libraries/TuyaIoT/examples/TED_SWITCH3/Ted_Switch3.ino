@@ -40,8 +40,8 @@ const char *pid = "ekdehkpnjp8squlk";
 const char *mcu_ver = "2.1.0";
 
 // Thông tin xác thực Tuya
-#define THANHCONGTED_UUID    "uuid62addcee523969a3"
-#define THANHCONGTED_AUTHKEY "Mxm00yrtmwaklZsgkQAdNvJE4pEwjVsX"
+#define THANHCONGTED_UUID    "uuidxxxxxxxxxxxxxxxx"
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 // ==================== DP ID DEFINITIONS ====================
 #define DPID_SWITCH_1     1

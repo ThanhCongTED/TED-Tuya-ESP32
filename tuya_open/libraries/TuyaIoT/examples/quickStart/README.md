@@ -1,48 +1,46 @@
-# Tuya IoT Quick Start
+# Bắt đầu nhanh với Tuya IoT
 
-Tuya Cloud Application is an application provided by the Tuya IoT platform. With Tuya Cloud Application, developers can quickly implement remote device control, device management, and other functions.
+Tuya Cloud Application là một ứng dụng được cung cấp bởi nền tảng Tuya IoT. Với Tuya Cloud Application, các nhà phát triển có thể nhanh chóng triển khai điều khiển thiết bị từ xa, quản lý thiết bị và các chức năng khác.
 
-The `quickStart` demonstrates a simple, cross-platform, cross-system switch example that supports multiple connections. Through the Tuya APP and Tuya Cloud Service, you can remotely control this LED.
+Ví dụ `quickStart` minh họa một ví dụ công tắc đơn giản, đa nền tảng, đa hệ thống, hỗ trợ nhiều kết nối. Thông qua ứng dụng Tuya APP và Dịch vụ Đám mây Tuya, bạn có thể điều khiển từ xa đèn LED này.
 
-## Product Creation
+## Tạo sản phẩm
 
-Refer to the [Product Creation Documentation](https://developer.tuya.com/en/docs/iot-device-dev/application-creation?id=Kbxw7ket3aujc) to create a product on the [Tuya IoT](https://iot.tuya.com) platform and obtain the PID of the created product.
+Tham khảo [Tài liệu Tạo sản phẩm](https://developer.tuya.com/en/docs/iot-device-dev/application-creation?id=Kbxw7ket3aujc) để tạo một sản phẩm trên nền tảng [Tuya IoT](https://iot.tuya.com) và lấy PID của sản phẩm đã tạo.
 
-Then replace the PID in `quickStart` with the PID you obtained.
-
-```c
-void setup() {
-  ...
-  TuyaIoT.begin("YOUR PID", PROJECT_VERSION);
-}
-```
-
-## Confirm TuyaOpen License Code
-
-Products developed through this project need to use the TuyaOpen-specific license code. Using other license codes will not connect to the Tuya Cloud properly.
-
-Modify the license code in the code as follows:
+Sau đó thay thế PID trong `quickStart` bằng PID bạn đã lấy được.
 
 ```c
-// Tuya license
-#define TUYA_DEVICE_UUID    "uuidxxxxxxxxxxxxxxxx"
-#define TUYA_DEVICE_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+const char *pid = "ekdehkpnjp8squlk";
+const char *mcu_ver = "2.1.0";
 ```
 
-If you do not have a TuyaOpen license code, you can obtain it through the following methods:
+## Xác nhận mã License của TuyaOpen
 
-+ Purchase a module with the TuyaOpen license code pre-burned. This license code is burned into the corresponding module at the factory and will not be lost. TuyaOpen reads the license code through the `TuyaIoT.readBoardLicense(&license);` interface at startup. Please confirm whether the current device has the TuyaOpen license code burned.
+Các sản phẩm được phát triển thông qua dự án này cần sử dụng mã license dành riêng cho Tuya Sử dụng mã license khác sẽ không thể kết nối đúng cách với Tuya Cloud.
 
-+ If the current module does not have the TuyaOpen license code burned, you can purchase the TuyaOpen license code through the [TuyaIoT platform](https://platform.tuya.com/purchase/index?type=6).
+Sửa mã license trong code như sau:
 
-+ Obtain a free TuyaOpen license code through the following activities:
+```c
+// Ted license Tuya
+#define THANHCONGTED_UUID    "uuidxxxxxxxxxxxxxxxx" // Thay bằng UUID thiết bị của bạn
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Thay bằng auth key của bạn
+```
 
-  To allow developers to freely experience the TuyaOpen Framework, you can now get a free TuyaOpen Framework-specific license code by starring the TuyaOpen Framework repository on GitHub, including:
+Nếu bạn chưa có mã Ted license Tuya, bạn có thể lấy nó thông qua các cách sau:
 
-  + [tuyaopen](https://github.com/tuya/tuyaopen)
-  + [arduino-tuyaopen](https://github.com/tuya/arduino-tuyaopen)
-  + [luanode-tuyaopen](https://github.com/tuya/luanode-tuyaopen)
++ Mỗi thiết bị cần 1 mã Ted license Tuya để giao tiếp Tuya Cloud  [TED_Tuya platform](https://thanhcongted.com/webinstaller/tuya.html).
 
-  With your GitHub account and screenshot, send an email to `chenyisong@tuya.com` or join the QQ group `796221529` and contact the group owner to receive a free TuyaOpen Framework-specific license code. Limited to 500 codes, first come first served, while supplies last. Scan the QR code below to join the group and claim your code👇:
+## 📞 Hỗ trợ kỹ thuật
+Mọi thắc mắc về firmware, vui lòng liên hệ:
 
-  ![qq_qrcode](https://github.com/tuya/tuyaopen/blob/master/docs/images/zh/qq_qrcode.png?raw=true)
+📞 Điện thoại/Zalo: +84-915-898-345
+
+✉️ Email: thanhcongted.info@gmail.com
+
+🌐 Website: https://thanhcongted.com
+
+## © Bản quyền
+Phát triển bởi đội ngũ kỹ sư Việt Nam
+Sản phẩm được thiết kế phù hợp với nhu cầu và thói quen sử dụng tại thị trường nội địa.
+

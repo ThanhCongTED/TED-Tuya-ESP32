@@ -1,28 +1,30 @@
 /**
- * @file quickStart.ino
- * @brief Tuya IoT quick start example
- * @copyright Copyright (c) 2021-2026 Tuya Inc. All Rights Reserved.
+ * @file quickStart.ino thanhcongted.com
+ * @brief Ví dụ bắt đầu nhanh với Tuya IoT
+ * @copyright Copyright (c) 2021-2026 ThanhCongTED.
  */
 
 #include "tLed.h"
-
 #include "TuyaIoT.h"
 #include <Log.h>
 
 #define ledPin LED_BUILTIN
-// Turn on LED when output low level
+// Bật LED khi mức output thấp
 tLed led(ledPin, LOW);
 
-// button
+// nút nhấn
 #define buttonPin         BUTTON_BUILTIN
 #define buttonPressLevel  LOW
 #define buttonDebounceMs  (50u)
 #define buttonLongPressMs (3 * 1000u)
 
-// Tuya license
-#define TUYA_DEVICE_UUID    "uuidxxxxxxxxxxxxxxxx"
-#define TUYA_DEVICE_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+// ==================== CẤU HÌNH TUYA ====================
+const char *pid = "2avicuxv6zgeiquf";
+const char *mcu_ver = "2.1.0";
 
+// Thông tin xác thực Tuya
+#define THANHCONGTED_UUID    "uuidxxxxxxxxxxxxxxxx"
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 #define DPID_SWITCH 1
 
 void tuyaIoTEventCallback(tuya_event_msg_t *event);
@@ -30,7 +32,7 @@ void buttonCheck(void);
 
 void setup()
 {
-    // put your setup code here, to run once:
+    // đặt code setup của bạn ở đây, chạy một lần:
     Serial.begin(115200);
 
     Log.begin();
@@ -38,7 +40,7 @@ void setup()
     // led
     led.off();
 
-    // button init
+    // khởi tạo nút nhấn
     pinMode(buttonPin, INPUT_PULLUP);
 
     TuyaIoT.setEventCallback(tuyaIoTEventCallback);
@@ -47,26 +49,24 @@ void setup()
     tuya_iot_license_t license;
     int                rt = TuyaIoT.readBoardLicense(&license);
     if (OPRT_OK != rt) {
-        license.uuid    = (char *)TUYA_DEVICE_UUID;
-        license.authkey = (char *)TUYA_DEVICE_AUTHKEY;
-        Serial.println("Replace the TUYA_DEVICE_UUID and TUYA_DEVICE_AUTHKEY contents, otherwise the demo cannot work");
+        license.uuid    = (char *)THANHCONGTED_UUID;
+        license.authkey = (char *)THANHCONGTED_AUTHKEY;
+        Serial.println("Thay thế nội dung THANHCONGTED_UUID và THANHCONGTED_AUTHKEY, nếu không demo sẽ không hoạt động");
     }
     Serial.print("uuid: ");
     Serial.println(license.uuid);
     Serial.print("authkey: ");
     Serial.println(license.authkey);
     TuyaIoT.setLicense(license.uuid, license.authkey);
-
-    // The "PROJECT_VERSION" comes from the "PROJECT_VERSION" field in "appConfig.json"
-    TuyaIoT.begin("qhivvyqawogv04e4", PROJECT_VERSION);
+    TuyaIoT.begin(pid, mcu_ver);
 }
 
 void loop()
 {
-    // put your main code here, to run repeatedly:
+    // đặt code chính của bạn ở đây, chạy lặp đi lặp lại:
     led.update();
 
-    // button press check
+    // kiểm tra nhấn nút
     buttonCheck();
 
     delay(10);
@@ -86,7 +86,7 @@ void tuyaIoTEventCallback(tuya_event_msg_t *event)
         led.off();
     } break;
     case TUYA_EVENT_MQTT_CONNECTED: {
-        // Update all DP
+        // Cập nhật tất cả DP
         Serial.println("---> TUYA_EVENT_MQTT_CONNECTED");
         uint8_t curState = led.getState();
         TuyaIoT.write(DPID_SWITCH, curState);
@@ -101,7 +101,7 @@ void tuyaIoTEventCallback(tuya_event_msg_t *event)
             switch (dpid) {
             case DPID_SWITCH: {
                 TuyaIoT.read(event, DPID_SWITCH, ledState);
-                Serial.print("Receive DPID_SWITCH: ");
+                Serial.print("Nhận DPID_SWITCH: ");
                 Serial.println(ledState);
                 led.setState(ledState);
                 TuyaIoT.write(DPID_SWITCH, ledState);
@@ -118,20 +118,20 @@ void tuyaIoTEventCallback(tuya_event_msg_t *event)
 
 void buttonClick()
 {
-    Serial.println("Button clicked");
+    Serial.println("Đã nhấn nút");
     uint8_t ledState = led.getState();
 
     ledState = !ledState;
     led.setState(ledState);
 
-    Serial.print("Upload DPID_SWITCH: ");
+    Serial.print("Gửi DPID_SWITCH: ");
     Serial.println(ledState);
     TuyaIoT.write(DPID_SWITCH, ledState);
 }
 
 void buttonLongPressStart()
 {
-    Serial.println("Button long press, remove Tuya IoT device.");
+    Serial.println("Nhấn giữ nút, xóa thiết bị Tuya IoT.");
     TuyaIoT.remove();
 }
 
@@ -146,12 +146,12 @@ void buttonCheck(void)
             isPress       = 1;
         }
 
-        // button debounce
+        // chống dội nút nhấn
         if ((1 == isPress) && ((millis() - buttonPressMs) > buttonDebounceMs)) {
             isPress = 2;
         }
 
-        // long press check
+        // kiểm tra nhấn giữ
         if ((2 == isPress) && ((millis() - buttonPressMs) >= buttonLongPressMs)) {
             isPress = 3;
             buttonLongPressStart();

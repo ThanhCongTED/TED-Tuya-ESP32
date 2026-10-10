@@ -19,8 +19,8 @@
           },
           "url": "https://github.com/ThanhCongTED/TED-Tuya-ESP32/releases/download/1.2.5/ted_tuya_esp32-1.2.5.zip",
           "archiveFileName": "ted_tuya_esp32-1.2.5.zip",
-          "size": "747459  ",
-          "checksum": "SHA-256:3c88b0b11effe2fe80ad87a5becdd54e70632fc2265dda853e76b2cd8a75cfbb",
+          "size": "754910  ",
+          "checksum": "SHA-256:9e531d44f86b54472c57121e2473fefd76bbf66bd50eba18e73dacf59002f169",
           "boards": [
             { "name": "esp32" }
           ],

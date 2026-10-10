@@ -24,8 +24,8 @@ This example demonstrates how to integrate Tuya IoT Weather Service with your de
 Configure these parameters before uploading:
 
 ```cpp
-#define TUYA_DEVICE_UUID "uuidxxxxxxxxxxxxxxxx"      // Your device UUID
-#define TUYA_DEVICE_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxx" // Your auth key
+#define THANHCONGTED_UUID "uuidxxxxxxxxxxxxxxxx"      // Your device UUID
+#define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxx" // Your auth key
 ```
 
 Product ID: `qhivvyqawogv04e4`
