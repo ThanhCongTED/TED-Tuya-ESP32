@@ -40,6 +40,8 @@ const char *pid = "ekdehkpnjp8squlk";
 const char *mcu_ver = "2.1.0";
 
 // Thông tin xác thực Tuya
+// https://thanhcongted.com/webinstaller/tuya_pay.html
+
 #define THANHCONGTED_UUID    "uuidxxxxxxxxxxxxxxxx" // Thay bằng UUID thiết bị của bạn
 #define THANHCONGTED_AUTHKEY "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Thay bằng auth key của bạn
 
