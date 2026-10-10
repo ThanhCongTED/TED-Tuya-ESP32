@@ -1,3 +1,5 @@
+[Việt Nam](README.md) | [English](README_eng.md)
+
 # 💻 THANHCONGTED – Code ESP32 + Tuya Platform
 
 > **Mô tả:** Code dùng ESP32 + Tuya Platform. Chỉ giữ: Button + Relay + LED WiFi. Xử lý 6 DP: 3 Switch (Bool) + 3 Timer (Value 0–86400s). BUTTON_SW1 giữ 10s → Reset WiFi Tuya (SMART_CONFIG).

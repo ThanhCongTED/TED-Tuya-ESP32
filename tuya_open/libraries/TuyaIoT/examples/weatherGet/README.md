@@ -1,3 +1,5 @@
+[Việt Nam](README.md) | [English](README_eng.md)
+
 # Ví dụ Lấy dữ liệu Thời tiết
 
 ## Tổng quan

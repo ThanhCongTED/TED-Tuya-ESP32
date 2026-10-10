@@ -1,3 +1,5 @@
+[Việt Nam](README.md) | [English](README_eng.md)
+
 # TuyaIoT dpType Example
 
 ## Overview

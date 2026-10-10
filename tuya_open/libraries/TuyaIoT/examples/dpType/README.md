@@ -1,3 +1,5 @@
+[Việt Nam](README.md) | [English](README_eng.md)
+
 # Ví dụ dpType của TuyaIoT
 
 ## Tổng quan

@@ -2,7 +2,7 @@
 
 ![Spell Check](https://img.shields.io/github/actions/workflow/status/tuya/arduino-tuyaopen/spell-check.yml?style=plastic&label=Spell%20Check)
 
-[English](README.md) | [简体中文](README_zh.md)
+[English](README_eng.md) | [VietNam](README.md)
 
 # Introduction
 

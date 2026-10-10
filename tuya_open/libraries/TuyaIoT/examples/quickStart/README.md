@@ -1,3 +1,5 @@
+[Việt Nam](README.md) | [English](README_eng.md)
+
 # Bắt đầu nhanh với Tuya IoT
 
 Tuya Cloud Application là một ứng dụng được cung cấp bởi nền tảng Tuya IoT. Với Tuya Cloud Application, các nhà phát triển có thể nhanh chóng triển khai điều khiển thiết bị từ xa, quản lý thiết bị và các chức năng khác.
