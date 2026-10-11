@@ -28,30 +28,6 @@ Hiện tại, dự án hỗ trợ các chip ESP32.
 
 > Lưu ý: Một số chip chưa được hỗ trợ trên một số hệ điều hành nhất định, chúng tôi đang nỗ lực để hỗ trợ chúng, hãy chờ đón nhé!
 
-# Cách sử dụng TED_TUYA_ESP32
-
-Bạn nên cài đặt và sử dụng phiên bản mới nhất của Arduino IDE 2, có thể tải xuống từ trang chủ chính thức của Arduino [arduino.cc](https://www.arduino.cc/en/software). Tất cả các công việc biên dịch, nạp và kiểm thử của dự án này đều được thực hiện trên Arduino IDE 2.
-
-+ Sao chép địa chỉ quản lý bo mạch phát triển sau:
-
-  ```
-  https://github.com/ThanhCongTED/TED-Tuya-ESP32/releases/download/global/package_ted_tuya_esp32_index.json
-  ```
-
-
-+ Mở Arduino IDE 2 và nhấp vào "File" -> "Preferences" để mở cửa sổ tùy chọn.
-
-  ![Preferences](https://github.com/ThanhCongTED/TED-Tuya-ESP32/blob/main/image/Preferences.jpg)
-
-+ Trong trường "Other Board Manager URLs", nhập địa chỉ quản lý bo mạch phát triển ở trên.
-
-  ![BoardManagerURL](https://github.com/ThanhCongTED/TED-Tuya-ESP32/blob/main/image/BoardManager.jpg)  
-
-+ Trong "Board Manager", tìm kiếm "TED Tuya ESP32" và cài đặt phiên bản mới nhất.
-
-## Cách sử dụng arduino-ted-tuya để kết nối đám mây
-
-+ [Kết nối với Nền tảng IoT Tuya](./tuya_open/libraries/TuyaIoT/examples/quickStart/README.md)
 
 ## Giới thiệu phần cứng cho Bo mạch phát triển
 
