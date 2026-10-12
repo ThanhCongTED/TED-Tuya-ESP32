@@ -23,7 +23,7 @@ Currently, the project supports the ESP32 chip.
 | :--: | :----------------------------------------------------------: |
 |  ESP32  | [ESP32](https://www.espressif.com/en/products/socs/esp32/resources) |
 
-# Supported Operating Systems
+# Supported Operating Systems Arduino IDE
 
 | Chip | Windows  | Linux |  macOS   |
 | :--: | :------: | :---: | :------: |

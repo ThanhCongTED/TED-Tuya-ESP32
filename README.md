@@ -15,7 +15,7 @@ Các sản phẩm IoT được phát triển dựa trên TED_TUYA_ESP32 có th�
 
 Đồng thời, TED_Tuya_ESP32 sẽ tiếp tục mở rộng, cung cấp thêm các chức năng truy cập nền tảng đám mây, cũng như các chức năng về giọng nói, video và nhận diện khuôn mặt, và TED_Tuya_ESP32 cũng sẽ được cập nhật để hỗ trợ nhiều chức năng hơn.
 
-# Các chip được hỗ trợ
+# Các chip được hỗ trợ 
 
 Hiện tại, dự án hỗ trợ các chip ESP32.
 
@@ -23,7 +23,7 @@ Hiện tại, dự án hỗ trợ các chip ESP32.
 | :--: | :----------------------------------------------------------: |
 |  ESP32  | [ESP32](https://www.espressif.com/en/products/socs/esp32/resources) |
 
-# Các hệ điều hành được hỗ trợ
+# Các hệ điều hành được hỗ trợ Arduino IDE
 
 | Chip | Windows  | Linux |  macOS   |
 
