@@ -6,6 +6,9 @@
 
 # Giới thiệu
 
+<div align='center'>
+<img src="MCU_TUYA2.png"/>
+</div>
 Ted Tuya ESP32 là một framework phát triển IoT mã nguồn mở do ThanhCongTED phát trển cho nền tảng Arduino, cho phép nhiều lập trình viên Arduino nhanh chóng phát triển các thiết bị IoT dựa trên nền tảng đám mây Tuya và hiện thực hóa việc điều khiển thông minh từ xa đối với thiết bị.
 
 Các sản phẩm IoT được phát triển dựa trên TED_TUYA_ESP32 có thể sử dụng các chức năng của component tuya_cloud_service để tận dụng hệ sinh thái mạnh mẽ do TuyaAPP hoặc SmartLife, các dịch vụ đám mây cung cấp, và có thể liên kết với các thiết bị của Tuya.
@@ -32,7 +35,10 @@ Hiện tại, dự án hỗ trợ các chip ESP32.
 ## Giới thiệu phần cứng cho Bo mạch phát triển
 
 + [Bo mạch phát triển TED-ESP32](https://thanhcongted.com/)
-
+<div align='center'>
+<img src="MCU_TUYA.png"/>
+<img src="MCU_TUYA3.png"/>
+</div>
 
 ## 📞 Hỗ trợ kỹ thuật
 Mọi thắc mắc về firmware, vui lòng liên hệ:

@@ -6,6 +6,9 @@
 
 # Introduction
 
+<div align='center'>
+<img src="MCU_TUYA2.png"/>
+</div>
 Ted Tuya ESP32 is an open-source IoT development framework provided by Tuya for the Arduino platform, allowing many Arduino developers to quickly develop IoT devices based on the Tuya cloud platform and realize remote intelligent control of devices.
 
 IoT products developed based on TED_TUYA_ESP32 can use the functions of the tuya_cloud_service component to take advantage of the powerful ecosystem provided by TuyaAPP or SmartLife and cloud services, and can interconnect with Tuya devices.
@@ -56,7 +59,10 @@ It is recommended to install and use the latest version of Arduino IDE 2, which 
 ## Hardware Introduction for Development Board
 
 + [TED-ESP32 Development Board](https://thanhcongted.com/)
-
+<div align='center'>
+<img src="MCU_TUYA.png"/>
+<img src="MCU_TUYA3.png"/>
+</div>
 
 ## 📞 Technical Support
 For any questions about the firmware, please contact:
