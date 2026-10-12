@@ -41,21 +41,6 @@ It is recommended to install and use the latest version of Arduino IDE 2, which 
   https://github.com/ThanhCongTED/TED-Tuya-ESP32/releases/download/global/package_ted_tuya_esp32_index.json
   ```
 
-
-+ Open Arduino IDE 2 and click "File" -> "Preferences" to open the preferences window.
-
-  ![Preferences](https://github.com/ThanhCongTED/TED-Tuya-ESP32/blob/main/image/Preferences.jpg)
-
-+ In the "Other Board Manager URLs" field, enter the above development board management address.
-
-  ![BoardManagerURL](https://github.com/ThanhCongTED/TED-Tuya-ESP32/blob/main/image/BoardManager.jpg)
-
-+ In the "Board Manager", search for "TED Tuya ESP32" and install the latest version.
-
-## How to use arduino-ted-tuya for cloud connection
-
-+ [Connect to Tuya IoT Platform](./tuya_open/libraries/TuyaIoT/examples/quickStart/README_eng.md)
-
 ## Hardware Introduction for Development Board
 
 + [TED-ESP32 Development Board](https://thanhcongted.com/)
