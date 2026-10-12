@@ -35,11 +35,7 @@ Currently, the project supports the ESP32 chip.
 
 It is recommended to install and use the latest version of Arduino IDE 2, which can be downloaded from the official Arduino website [arduino.cc](https://www.arduino.cc/en/software). All compilation, flashing, and testing of this project are carried out on Arduino IDE 2.
 
-+ Copy the following development board management address:
-
-  ```
-  https://github.com/ThanhCongTED/TED-Tuya-ESP32/releases/download/global/package_ted_tuya_esp32_index.json
-  ```
+install [TED_TUYA_ESP32](https://thanhcongted.com/webinstaller/ted_tuya_pay.html) 
 
 ## Hardware Introduction for Development Board
 
