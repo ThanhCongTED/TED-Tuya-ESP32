@@ -35,7 +35,7 @@ Bạn nên cài đặt và sử dụng phiên bản mới nhất của Arduino I
 thức của Arduino arduino.cc. Tất cả các công việc biên dịch, nạp và kiểm thử của dự án này đều được 
 thực hiện trên Arduino IDE 2. 
 
-install [TED_TUYA_ESP32](https://thanhcongted.com/webinstaller/ted_tuya_pay.html) 
+install [TED_TUYA_ESP32](https://thanhcongted.com/webinstaller/esp_tuya_pay.html) 
 
 ## Giới thiệu phần cứng cho Bo mạch phát triển
 
